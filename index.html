@@ -22,27 +22,67 @@
   
       <header class="navbar navbar-expand-lg bd-navbar sticky-top">
     <nav class="container-xxl bd-gutter flex-wrap flex-lg-nowrap" aria-label="Main navigation">
-        <div class="d-lg-none" style="width: 1.5rem;"></div>
+        <!-- <div class="d-lg-none" style="width: 1.5rem;"></div> -->
   
-      <div class="d-flex">
+      <!-- <div class="d-flex"> -->
+        <div class="container mt-5 text-center ">
         
+            <div class="form-check form-switch">
         <input type="text" id="formInput" class="form-control"
                  placeholder="Word" value=""
            />
            
-
+            <button type="button" class="btn btn-primary" onclick="processForm()">Submit</button>
+            </div>
+          
+           
+           <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for any word">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="bi bi-search"></i>
+              </button>
+            </span>
+          </div>
+          
 
         
            
   
 
-  <div class="form-check form-switch">
-  <button type="button" class="btn btn-primary" onclick="processForm()">Submit</button>
-  </div>
-
+  <div class="">
   
-  <div class="result" id="result">
+    <div class="result" id="">
+        <span class="" id="result"></span>
+    </div>
 
+    <div class="result" id="">
+        <span class="" id="phonetic"></span>
+    </div>
+    
+    <div class="result" id="">
+        <span class="" id="audio"></span>
+    </div>
+    
+    <div class="result" id="">
+        <span class="" id="partOfSpeech"></span>
+    </div>
+    
+    <div class="result" id="">
+        <span class="" id="meaning"></span>
+    </div>
+        
+    <div class="result" id="">
+        <span class="" id="synonym"></span>
+    </div>
+    
+    <div class="result" id="">
+        <span class="" id="source"></span>
+    </div>
+  
+</div>
+  
+  
   </div>
 
   
