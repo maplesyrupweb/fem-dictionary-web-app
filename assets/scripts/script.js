@@ -18,16 +18,22 @@ function  processForm() {
 
 async function getWord(wordInput)
 {
-        
+    loadSpinner();    
     const apiURL =  "https://api.dictionaryapi.dev/api/v2/entries/en/" + wordInput;
+    
     console.log(apiURL);
 
     try {
         const response = await fetch(apiURL, {cache: "no-cache"});
         const result = await response.json();
     
-        if (response.ok) {
-            
+        if (response.status !== 200) {
+            hideSpinner();
+            console.log("Nothing to see here.");
+        }
+
+        else if (response.ok) {
+            hideSpinner();
             console.log("Dictionary API result is: " , result);                
             
             
@@ -62,3 +68,20 @@ async function getWord(wordInput)
     }
 }
 
+/**
+ * Hide the spinner
+ */
+
+function hideSpinner() {
+    document.getElementById('spinner')
+            .style.display = 'none';
+} 
+
+/**
+ * Show the spinner
+ */
+
+function loadSpinner() {
+    document.getElementById('spinner')
+            .style.display = '';
+}
