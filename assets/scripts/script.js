@@ -8,6 +8,8 @@ let thePartOfSpeech = document.getElementById("partOfSpeech");
 let theMeaning = document.getElementById("meaning");
 let theSynonym = document.getElementById("synonym");
 let theSource = document.getElementById("source");
+// let playButton = document.getElementsByClassName("play-icon");
+let playButton = document.getElementById("play-icon");
 
 function  processForm() {
 
@@ -30,6 +32,7 @@ function  processForm() {
 
 async function getWord(wordInput)
 {
+    playButton.classList.remove("icon-play");
     loadSpinner();    
     const apiURL =  "https://api.dictionaryapi.dev/api/v2/entries/en/" + wordInput;
     
@@ -46,6 +49,10 @@ async function getWord(wordInput)
 
         else if (response.ok) {
             hideSpinner();
+            playButton.classList.add("icon-play");
+            theAudio.href = result[0].phonetics[1].audio;
+            theAudio.innerHTML = "Play";
+
             console.log("Dictionary API result is: " , result);                
             
             
@@ -53,7 +60,7 @@ async function getWord(wordInput)
             theResult.innerHTML = result[0].word;    
 
             console.log("Audio: " + result[0].phonetics[1].audio);
-            theAudio.innerHTML  = result[0].phonetics[1].audio;
+            // theAudio.innerHTML  = result[0].phonetics[1].audio;
 
             console.log("Phonetic: " + result[0].phonetic);
             thePhonetic.innerHTML = result[0].phonetic;

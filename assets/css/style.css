@@ -15,3 +15,10 @@ body {
     background-color: var(--white); 
     color: var(--black);
 }
+
+.icon-play {
+  display: inline !important;
+  padding: 10px;
+}
+
+
