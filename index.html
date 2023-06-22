@@ -26,18 +26,22 @@
   
       <!-- <div class="d-flex"> -->
         <div class="container mt-5 text-center ">
-        
+            
             <div class="form-check form-switch">
-        <input type="text" id="formInput" class="form-control"
-                 placeholder="Word" value=""
+                
+            <input type="text" id="formInput" class="form-control"
+               placeholder="Word" 
+               value="" 
+               required
            />
-           
+           <span class="" id="errorMessage"></span>
             <button type="button" class="btn btn-primary" onclick="processForm()">Submit</button>
-            </div>
-          
+            
+          </div>
            
            <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for any word">
+            
             <span class="input-group-btn">
               <button class="btn btn-default" type="submit">
                 <i class="bi bi-search"></i>

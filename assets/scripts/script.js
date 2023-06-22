@@ -1,5 +1,6 @@
 
 let theFormInput = document.getElementById("formInput");
+let errorMessage = document.getElementById("errorMessage");
 let theResult = document.getElementById("result");
 let theAudio = document.getElementById("audio");
 let thePhonetic = document.getElementById("phonetic");
@@ -10,9 +11,20 @@ let theSource = document.getElementById("source");
 
 function  processForm() {
 
-    let tempFormInput = formInput.value;
-    console.log("Form input is: " + tempFormInput);
-    getWord(tempFormInput);
+    errorMessage.innerHTML = "";
+
+    if ((theFormInput.value.length == null) ||  (theFormInput.value.length == "")) {
+        console.log ("Form input error")
+        errorMessage.innerHTML = "Can't be empty";
+    }
+    else 
+    {
+        let tempFormInput = formInput.value;
+        console.log("Form input is: " + tempFormInput);
+        getWord(tempFormInput);
+    }
+
+    
 }
 
 
