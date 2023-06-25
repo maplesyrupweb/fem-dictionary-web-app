@@ -19,9 +19,11 @@ function  processForm() {
     if ((theFormInput.value.length == null) ||  (theFormInput.value.length == "")) {
         console.log ("Form input error")
         errorMessage.innerHTML = "Can't be empty";
+        theFormInput.style.border = "1px solid red";
     }
     else 
     {
+        theFormInput.style.border = "none";
         let tempFormInput = formInput.value;
         console.log("Form input is: " + tempFormInput);
         getWord(tempFormInput);
