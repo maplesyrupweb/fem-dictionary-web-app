@@ -41,16 +41,16 @@
               
             </ul>
 
-            <select id="input" class="input" onchange="fontStyle (this);">
-                <option value="serif" elected="selected">
+            <select id="input" class="navbar-nav me-auto mb-2 mb-lg-0 input" onchange="fontStyle (this);">
+                <option class="nav-item dropdown" value="serif" elected="selected">
                     Serif
                  </option>
-                 <option value="sans-serif">Sans-serif</option>
+                 <option class="dropdown-item" value="sans-serif">Sans-serif</option>
                  <option value="mono">Mono</option>
                  <option value="monospace">Monospace</option>
              </select>
 
-             <select id="input" class="input" onchange="fontSize (this);">
+             <select id="input" class="navbar-nav me-auto mb-2 mb-lg-0 input" onchange="fontSize (this);">
                 <option value="14px" elected="selected">
                     14px
                  </option>
@@ -59,12 +59,6 @@
                  <option value="26px">26px</option>
              </select>
  
-
-
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
           </div>
         </div>
       </nav>
@@ -93,22 +87,16 @@
 
   
     <div class="result" id="">
-        <span class="" id="result"></span><span class="" id="">
-            <img class="icon" 
-                id="play-icon" 
-                style="display:none;" 
-                src="assets/images/icon-play.svg">
-            <audio controls id="audio" class=""> 
-                <source src="">
-                
-           </audio>
-        </img>
-           <!-- <a href="" id="audio" class=""></a> -->
-            </button>
+        <span class="" id="result"></span>
             
-            
-            
-            
+            <audio src="" id="audio" class=""></audio> 
+                <a href="#" id="play">                
+                    <img class="icon" 
+                    id="play-icon" 
+                    style="display:none;" 
+                    src="assets/images/icon-play.svg">   
+                </a>
+            </span>
     </div>
 
     <div class="result" id="">
@@ -137,7 +125,6 @@
   
 </div>
   
-  
   </div>
 
   
@@ -145,13 +132,13 @@
       
         
   <script src="assets/scripts/script.js"></script>
+  <script src="assets/scripts/audio.js"></script>
   <!-- <script src="assets/scripts/colormode.js"></script> -->
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <script>
-    // var changingFontStyle = function (fontstyle) {
-    //    document.getElementById("content").style.fontFamily = fontstyle.value;
-    // }
+    
+
  </script>
 </body>
 </html>
