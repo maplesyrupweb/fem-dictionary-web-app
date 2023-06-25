@@ -27,6 +27,7 @@ function  processForm() {
         let tempFormInput = formInput.value;
         console.log("Form input is: " + tempFormInput);
         getWord(tempFormInput);
+        theFormInput.value = "";
     }
 
     
@@ -123,14 +124,27 @@ function fontStyle(input) {
 }
 
 /**
- * Change the font size from user selection
+ * Change the font size from user selection and store in localStorage
  * @param {*} input 
  */
 
 function fontSize(input) {
     
-    console.log(input);
+    var select = document.getElementById("input2");
+    select.style.fontSize = input.value;
+    localStorage.setItem("font-size", input.value);
     document.getElementById("content").style.fontSize = input.value;
-
 }
 
+/**
+ * Get the font size from local localStorage
+ */
+
+function getFontSize() {
+
+    var select = document.getElementById("input2");
+    select.value = localStorage.getItem("font-size");
+    select.style.fontSize = select.value;
+}
+
+window.onload = getFontSize();
