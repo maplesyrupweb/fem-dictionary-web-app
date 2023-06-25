@@ -50,8 +50,10 @@ async function getWord(wordInput)
         else if (response.ok) {
             hideSpinner();
             playButton.classList.add("icon-play");
-            theAudio.href = result[0].phonetics[1].audio;
-            theAudio.innerHTML = "Play";
+            theAudio.src = result[0].phonetics[1].audio;
+            // theAudio.play();
+            // theAudio.href = result[0].phonetics[1].audio;
+            // theAudio.innerHTML = "Play";
 
             console.log("Dictionary API result is: " , result);                
             
@@ -104,3 +106,28 @@ function loadSpinner() {
     document.getElementById('spinner')
             .style.display = '';
 }
+
+/**
+ * Change the font family from user selection
+ * @param {*} input 
+ */
+
+function fontStyle(input) {
+    
+    console.log(input);
+    document.getElementById("content").style.fontFamily = input.value;
+
+}
+
+/**
+ * Change the font size from user selection
+ * @param {*} input 
+ */
+
+function fontSize(input) {
+    
+    console.log(input);
+    document.getElementById("content").style.fontSize = input.value;
+
+}
+
