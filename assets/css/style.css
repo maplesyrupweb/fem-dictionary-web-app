@@ -25,3 +25,25 @@ body {
 #errorMessage {
   color: red;
 }
+
+#formInput {
+  padding: 10px;
+}
+
+.my-input { 
+  position: relative; 
+  // width:240px; 
+}
+.my-input input { 
+  display:block; 
+  width: 100%; 
+  box-sizing: border-box 
+}
+
+.my-input img { 
+  position: absolute; 
+  top: 12px; 
+  right: 5px; 
+  bottom: 5px; 
+  
+}
