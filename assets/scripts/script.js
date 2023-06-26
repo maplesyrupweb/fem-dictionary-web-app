@@ -112,16 +112,30 @@ function loadSpinner() {
 }
 
 /**
- * Change the font family from user selection
+ * Change the font family from user selection and store in localStorage
  * @param {*} input 
  */
 
 function fontStyle(input) {
     
-    console.log(input);
+    var select = document.getElementById("input");
+    select.style.fontFamily = input.value;
+    localStorage.setItem("font-family", input.value);
     document.getElementById("content").style.fontFamily = input.value;
 
 }
+
+/**
+ * Get the font family from local localStorage
+ */
+
+function getFontFamily() {
+
+    var select = document.getElementById("input");
+    select.value = localStorage.getItem("font-family");
+    select.style.fontFamily = select.value;
+}
+
 
 /**
  * Change the font size from user selection and store in localStorage
@@ -147,4 +161,4 @@ function getFontSize() {
     select.style.fontSize = select.value;
 }
 
-window.onload = getFontSize();
+window.onload = getFontSize();getFontFamily();
