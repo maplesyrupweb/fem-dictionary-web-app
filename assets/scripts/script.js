@@ -10,7 +10,7 @@ let theSynonym = document.getElementById("synonym");
 let theSource = document.getElementById("source");
 // let playButton = document.getElementsByClassName("play-icon");
 let playButton = document.getElementById("play-icon");
-
+let hrResult = document.getElementById("hr-result");
 
 function  processForm() {
 
@@ -55,10 +55,7 @@ async function getWord(wordInput)
             hideSpinner();
             playButton.classList.add("icon-play");
             theAudio.src = result[0].phonetics[1].audio;
-            // theAudio.play();
-            // theAudio.href = result[0].phonetics[1].audio;
-            // theAudio.innerHTML = "Play";
-
+            hrResult.classList.add("show");
             console.log("Dictionary API result is: " , result);                
             
             
