@@ -57,6 +57,11 @@ body {
   cursor: pointer;
 }
 
+.moon-icon {
+  padding-left: 5px;
+  width: 30px;
+}
+
  /* The switch - the box around the slider */
  .switch {
   position: relative;
