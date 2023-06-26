@@ -42,8 +42,17 @@ body {
 
 .my-input img { 
   position: absolute; 
+  width: 25px;
   top: 12px; 
-  right: 5px; 
+  right: 15px; 
   bottom: 5px; 
   
+}
+
+.container {
+  max-width: 737px;
+}
+
+.search-icon {
+  cursor: pointer;
 }
