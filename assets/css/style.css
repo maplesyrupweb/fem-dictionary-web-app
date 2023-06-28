@@ -140,3 +140,16 @@ input:checked + .slider:before {
   font-weight: bold;
   font-style: italic;
 }
+
+.heading-1 {
+  font-size: 4.5rem;
+  font-weight: 700
+  line-height: 1.5;
+}
+
+.heading-2 {
+  font-size: 1.5rem;
+  // font-weight: 300
+  line-height: 1.5;
+  padding-top: 20px; 
+}
