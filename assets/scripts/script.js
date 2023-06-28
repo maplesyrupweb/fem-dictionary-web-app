@@ -11,6 +11,7 @@ let theSource = document.getElementById("source");
 // let playButton = document.getElementsByClassName("play-icon");
 let playButton = document.getElementById("play-icon");
 let hrResult = document.getElementById("hr-result");
+let meaningTitle = document.getElementById("meaningHeading");
 
 function  processForm() {
 
@@ -71,6 +72,7 @@ async function getWord(wordInput)
             console.log("Part of speech: " + result[0].meanings[0].partOfSpeech);
             thePartOfSpeech.innerHTML = result[0].meanings[0].partOfSpeech;
 
+            meaningTitle.classList.add("show");
             console.log("The meaning: " + result[0].meanings[0].definitions[0].definition ); 
             theMeaning.innerHTML = result[0].meanings[0].definitions[0].definition;
             

@@ -131,3 +131,12 @@ input:checked + .slider:before {
 .show {
   display: block !important;
 }
+
+.phonetic {
+  color: var(--purple);
+}
+
+#partOfSpeech {
+  font-weight: bold;
+  font-style: italic;
+}
