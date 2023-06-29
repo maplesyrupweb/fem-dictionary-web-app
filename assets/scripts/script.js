@@ -11,6 +11,7 @@ let theSource = document.getElementById("source");
 // let playButton = document.getElementsByClassName("play-icon");
 let playButton = document.getElementById("play-icon");
 let hrResult = document.getElementById("hr-result");
+let hrSource = document.getElementById("hr-source");
 let meaningTitle = document.getElementById("meaningHeading");
 let synonymTitle = document.getElementById("synonymHeading");
 let sourceTitle = document.getElementById("sourceHeading");
@@ -82,6 +83,7 @@ async function getWord(wordInput)
             console.log("Synonym: " + result[0].meanings[0].synonyms);
             theSynonym.innerHTML = result[0].meanings[0].synonyms;
     
+            hrSource.classList.add("show");
             sourceTitle.classList.add("show");
             console.log("The source: " + result[0].sourceUrls[0]);
             theSource.innerHTML = result[0].sourceUrls[0];
