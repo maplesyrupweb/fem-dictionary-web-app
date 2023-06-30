@@ -55,6 +55,7 @@ async function getWord(wordInput)
             console.log("Nothing to see here.");
         }
 
+
         else if (response.ok) {
             hideSpinner();
             playButton.classList.add("icon-play");
@@ -76,11 +77,13 @@ async function getWord(wordInput)
             thePartOfSpeech.innerHTML = result[0].meanings[0].partOfSpeech;
 
             meaningTitle.classList.add("show");
-            console.log("The meaning: " + result[0].meanings[0].definitions[0].definition ); 
+            console.log("The meaning: " + result[0].meanings[0].definitions[0].definition );
+            theMeaning.classList.add("show-li");
             theMeaning.innerHTML = result[0].meanings[0].definitions[0].definition;
             
             synonymTitle.classList.add("show");
             console.log("Synonym: " + result[0].meanings[0].synonyms);
+            // theSynonym.classList.add("show-li");
             theSynonym.innerHTML = result[0].meanings[0].synonyms;
     
             hrSource.classList.add("show");

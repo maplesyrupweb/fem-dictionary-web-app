@@ -132,6 +132,10 @@ input:checked + .slider:before {
   display: block !important;
 }
 
+.show-li {
+  display: list-item !important;
+}
+
 .phonetic {
   color: var(--purple);
 }
@@ -143,7 +147,7 @@ input:checked + .slider:before {
 
 .heading-1 {
   font-size: 4.5rem;
-  font-weight: 700
+  font-weight: 700;
   line-height: 1.5;
 }
 
@@ -153,3 +157,4 @@ input:checked + .slider:before {
   line-height: 1.5;
   padding-top: 20px; 
 }
+
