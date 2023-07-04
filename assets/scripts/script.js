@@ -2,7 +2,7 @@
 let theFormInput = document.getElementById("formInput");
 let errorMessage = document.getElementById("errorMessage");
 let theResult = document.getElementById("result");
-let theAudio = document.getElementById("audio");
+// let theAudio = document.getElementById("audio");
 let thePhonetic = document.getElementById("phonetic");
 let thePartOfSpeech = document.getElementById("partOfSpeech");
 let theMeaning = document.getElementById("meaning");
@@ -15,6 +15,8 @@ let hrSource = document.getElementById("hr-source");
 let meaningTitle = document.getElementById("meaningHeading");
 let synonymTitle = document.getElementById("synonymHeading");
 let sourceTitle = document.getElementById("sourceHeading");
+
+
 
 function  processForm() {
 
@@ -59,7 +61,7 @@ async function getWord(wordInput)
         else if (response.ok) {
             hideSpinner();
             playButton.classList.add("icon-play");
-            theAudio.src = result[0].phonetics[1].audio;
+            // theAudio.src = result[0].phonetics[1].audio;
             hrResult.classList.add("show");
             console.log("Dictionary API result is: " , result);                
             
@@ -67,9 +69,10 @@ async function getWord(wordInput)
             console.log("Word: " + result[0].word);
             theResult.innerHTML = result[0].word;    
 
-            console.log("Audio: " + result[0].phonetics[1].audio);
+            // console.log("Audio: " + result[0].phonetics[1].audio);
             // theAudio.innerHTML  = result[0].phonetics[1].audio;
 
+            fillKeyword(result[0]);
             console.log("Phonetic: " + result[0].phonetic);
             thePhonetic.innerHTML = result[0].phonetic;
 
@@ -100,6 +103,31 @@ async function getWord(wordInput)
       
     }
 }
+
+function fillKeyword(data) {
+
+    console.log("*** Inside the fillkeyword function ***")
+    // data-keyword, data-pronunciation, data-audio
+    // const termEl = document.querySelector("[data-keyword__term]");
+    // termEl.innerText = data.word;
+  
+    // const pronunciationEl = document.querySelector(
+    //   "[data-keyword__pronunciation]"
+    // );
+    // pronunciationEl.innerText = data.phonetic || "";
+  
+  
+    // *************************************************************
+  
+    // return first non-empty audio tag
+    let audioUrl = data.phonetics.find((e) => {
+        console.log("*** e.audio is " + e.audio);
+      return e.audio;
+    });
+    const audioEl = document.querySelector("[data-keyword__audio]");
+    audioEl?.setAttribute("src", audioUrl?.audio);
+  }
+  
 
 /**
  * Hide the spinner
