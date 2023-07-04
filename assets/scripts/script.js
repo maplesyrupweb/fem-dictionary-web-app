@@ -8,13 +8,13 @@ let thePartOfSpeech = document.getElementById("partOfSpeech");
 let theMeaning = document.getElementById("meaning");
 let theSynonym = document.getElementById("synonym");
 let theSource = document.getElementById("source");
-// let playButton = document.getElementsByClassName("play-icon");
 let playButton = document.getElementById("play-icon");
 let hrResult = document.getElementById("hr-result");
 let hrSource = document.getElementById("hr-source");
 let meaningTitle = document.getElementById("meaningHeading");
 let synonymTitle = document.getElementById("synonymHeading");
 let sourceTitle = document.getElementById("sourceHeading");
+let keywordPlayButton = document.querySelector("[data-keyword__play]");
 
 
 
@@ -127,7 +127,16 @@ function fillKeyword(data) {
     const audioEl = document.querySelector("[data-keyword__audio]");
     audioEl?.setAttribute("src", audioUrl?.audio);
   }
-  
+
+
+/**
+ * Event listener for the play button
+ */
+
+keywordPlayButton.addEventListener("click", (evt) => {
+    const audioEl = document.querySelector("[data-keyword__audio]");
+    audioEl.play();
+});
 
 /**
  * Hide the spinner
