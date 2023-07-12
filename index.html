@@ -105,6 +105,9 @@
         <span class="visually-hidden">Loading...</span>
       </div>
       
+      
+    
+    
 
     <div class="row mt-5">
         <div class="col" id="">
@@ -115,12 +118,47 @@
             <audio data-keyword__audio>
             </audio>
             <button type="button" class="btn btn--icon keyword__audio-play" data-keyword__play>
-            <a href="#" id="play">                
+              <a href="#" id="play">                
                 <img class="icon" 
                 id="play-icon" 
                 style="display:none;" 
                 src="assets/images/icon-play.svg">   
             </a>
+
+            <div class="search">
+              <!-- search -->
+              <input autofocus placeholder="Search for any word..." type="text" class="search__input search__text--1"
+                id="search-term">
+              <label class="search__label">
+                <span class="visually-hidden">Enter word to lookup</span>
+                <button type="button" class="btn btn--icon" id="search-button">
+                  <span class="visually-hidden">Search</span>
+                  <svg class="icon icon-search">
+                    <use href="assets/icons.svg#icon-search"></use>
+                  </svg>
+                </button>
+              </label>
+            </div>
+
+            
+              <section data-keyword class="keyword">
+                <h1 data-keyword__term class="keyword__word heading--1"></h1>
+                <p data-keyword__pronunciation class="keyword__pronunciation text--2"></p>
+                <figure class="keyword__audio">
+                  <figcaption class="visually-hidden">Listen to the pronunciation</figcaption>
+                  <audio data-keyword__audio>
+                  </audio>
+                  <button type="button" class="btn btn--icon keyword__audio-play" data-keyword__play>
+                    <span class="visually-hidden">Play keyword pronunciation</span>
+                    <svg class="icon icon-play">
+                      <use href="assets/icons.svg#icon-play"></use>
+                    </svg>
+                  </button>
+                </figure>
+              </section>
+          
+
+            
         </div>               
     </div>
     
@@ -164,14 +202,31 @@
     
   
 </div>
+
+<section data-definitions class="definitions"></section>
+
+    <section class="busy">
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </section>
   
   </div>
 
-  
-        
-      
         
   <script src="assets/scripts/script.js"></script>
+  <script src="assets/scripts/select.js"></script>
   <!-- <script src="assets/scripts/audio.js"></script> -->
   <script src="assets/scripts/element-factory.js"></script>
   <!-- <script src="assets/scripts/colormode.js"></script> -->
