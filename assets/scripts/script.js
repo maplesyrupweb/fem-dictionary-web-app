@@ -15,23 +15,7 @@ let meaningTitle = document.getElementById("meaningHeading");
 let synonymTitle = document.getElementById("synonymHeading");
 let sourceTitle = document.getElementById("sourceHeading");
 
-
-const searchButton = document.getElementById("search-button");
-const searchTerm = document.getElementById("search-term");
 const keywordPlayButton = document.querySelector("[data-keyword__play]");
-
-
-searchButton.addEventListener("click", () => initiateSearch());
-
-//search keyword or hashtag
-function initiateSearch(keyword) {
-  const searchFor = keyword || searchTerm.value;
-  if (searchFor) {
-    location.assign(
-      location.href.split("#")[0] + "#" + encodeURIComponent(searchFor)
-    );
-  }
-}
 
 
 function  processForm() {
@@ -52,7 +36,6 @@ function  processForm() {
         theFormInput.value = "";
     }
 
-    
 }
 
 
@@ -147,27 +130,7 @@ function fillKeyword(data) {
   }
 
 
-  function fillKeyword2(data) {
-
-      console.log("*** Inside the fillkeyword2 function ***")
-          // data-keyword, data-pronunciation, data-audio
-      const termEl = document.querySelector("[data-keyword__term]");
-      termEl.innerText = data.word;
-
-      const pronunciationEl = document.querySelector(
-        "[data-keyword__pronunciation]"
-      );
-      pronunciationEl.innerText = data.phonetic || "";
-
-      // return first non-empty audio tag
-      let audioUrl2 = data.phonetics.find((e2) => {
-        return e2.audio;
-      });
-      const audioEl2 = document.querySelector("[data-keyword__audio2]");
-      audioEl2?.setAttribute("src", audioUrl2?.audio);
-
-  }
-
+  
 
 /**
  * Event listener for the play button
@@ -406,7 +369,7 @@ function fillDefinitions(data) {
         element("img")
           .class("icon")
           .class("icon-new-window")
-          .attribute("src", newWindowIcon)
+          
           .attribute("aria-hidden", "true")
           .addTo(ahref);
       }
