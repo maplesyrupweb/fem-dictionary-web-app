@@ -2,15 +2,14 @@
 let theFormInput = document.getElementById("formInput");
 let errorMessage = document.getElementById("errorMessage");
 let theResult = document.getElementById("result");
-// let theAudio = document.getElementById("audio");
 let thePhonetic = document.getElementById("phonetic");
 let thePartOfSpeech = document.getElementById("partOfSpeech");
 let theMeaning = document.getElementById("meaning");
 let theSynonym = document.getElementById("synonym");
 let theSource = document.getElementById("source");
 let playButton = document.getElementById("play-icon");
-let hrResult = document.getElementById("hr-result");
-let hrSource = document.getElementById("hr-source");
+// let hrResult = document.getElementById("hr-result");
+// let hrSource = document.getElementById("hr-source");
 let meaningTitle = document.getElementById("meaningHeading");
 let synonymTitle = document.getElementById("synonymHeading");
 let sourceTitle = document.getElementById("sourceHeading");
@@ -60,39 +59,12 @@ async function getWord(wordInput)
         else if (response.ok) {
             hideSpinner();
             playButton.classList.add("icon-play");
-            // theAudio.src = result[0].phonetics[1].audio;
-            hrResult.classList.add("show");
+            // hrResult.classList.add("show");
             console.log("Dictionary API result is: " , result);                
             
-            
-            console.log("Word: " + result[0].word);
-            theResult.innerHTML = result[0].word;    
-
-            // console.log("Audio: " + result[0].phonetics[1].audio);
-            // theAudio.innerHTML  = result[0].phonetics[1].audio;
 
             fillKeyword(result[0]);
-            console.log("Phonetic: " + result[0].phonetic);
-            thePhonetic.innerHTML = result[0].phonetic;
-
-            console.log("Part of speech: " + result[0].meanings[0].partOfSpeech);
-            thePartOfSpeech.innerHTML = result[0].meanings[0].partOfSpeech;
-
-            meaningTitle.classList.add("show");
-            console.log("The meaning: " + result[0].meanings[0].definitions[0].definition );
-            theMeaning.classList.add("show-li");
-            theMeaning.innerHTML = result[0].meanings[0].definitions[0].definition;
-            
-            synonymTitle.classList.add("show");
-            console.log("Synonym: " + result[0].meanings[0].synonyms);
-            // theSynonym.classList.add("show-li");
-            theSynonym.innerHTML = result[0].meanings[0].synonyms;
-    
-            hrSource.classList.add("show");
-            sourceTitle.classList.add("show");
-            console.log("The source: " + result[0].sourceUrls[0]);
-            theSource.innerHTML = result[0].sourceUrls[0];
-         
+          
             console.log("calling fillDefinitions");
             fillDefinitions(result);
         }
@@ -104,6 +76,14 @@ async function getWord(wordInput)
       
     }
 }
+
+/**
+ * Display the following
+ * 1. Search term
+ * 2. Audio file
+ * 3. Pronunciation / phonetics
+ * @param {*} data 
+ */
 
 function fillKeyword(data) {
 
@@ -125,6 +105,7 @@ function fillKeyword(data) {
         console.log("*** e.audio is " + e.audio);
       return e.audio;
     });
+
     const audioEl = document.querySelector("[data-keyword__audio]");
     audioEl?.setAttribute("src", audioUrl?.audio);
   }
@@ -210,7 +191,22 @@ function getFontSize() {
     select.style.fontSize = select.value;
 }
 
+
+// Run these 2 functions on page load
 window.onload = getFontSize();getFontFamily();
+
+
+/**
+ * Display the following information, if available
+ * 1. Part of speech
+ * 2. Definition(s)
+ * 3. Definition Example(s)
+ * 4. Synonym(s)
+ * 5. Antonym(s)
+ * 6. Source URL(s)
+ * 
+ * @param {*} data 
+ */
 
 function fillDefinitions(data) {
     const definitions = document.querySelector("[data-definitions]");
@@ -260,15 +256,8 @@ function fillDefinitions(data) {
               const liEl = element("li")
                 .class("definition__synonym")
                 .addTo(defnSynUlEl);
-              element("a")
+              element("p")
                 .text(syn)
-                .attribute(
-                  "href",
-                  location.origin +
-                    location.pathname +
-                    "#" +
-                    encodeURIComponent(syn)
-                )
                 .addTo(liEl);
             }
           }
@@ -282,15 +271,8 @@ function fillDefinitions(data) {
               .addTo(liEl);
             for (const ant of defn.antonyms) {
               const liEl = element("li").class("definition__antonym").addTo(liEl);
-              element("a")
+              element("p")
                 .text(ant)
-                .attribute(
-                  "href",
-                  location.origin +
-                    location.pathname +
-                    "#" +
-                    encodeURIComponent(ant)
-                )
                 .addTo(liEl);
             }
           }
@@ -310,15 +292,8 @@ function fillDefinitions(data) {
             const liEl = element("li")
               .class("definition__synonym")
               .addTo(synUlEl);
-            element("a")
+            element("p")
               .text(syn)
-              .attribute(
-                "href",
-                location.origin +
-                  location.pathname +
-                  "#" +
-                  encodeURIComponent(syn)
-              )
               .addTo(liEl);
           }
         }
@@ -337,15 +312,8 @@ function fillDefinitions(data) {
             const liEl = element("li")
               .class("definition__antonym")
               .addTo(antUlEl);
-            element("a")
+            element("p")
               .text(ant)
-              .attribute(
-                "href",
-                location.origin +
-                  location.pathname +
-                  "#" +
-                  encodeURIComponent(ant)
-              )
               .addTo(liEl);
           }
         }
@@ -366,12 +334,6 @@ function fillDefinitions(data) {
           .attribute("target", "_blank")
           .addTo(sourceItem);
         element("span").text(url).addTo(ahref);
-        element("img")
-          .class("icon")
-          .class("icon-new-window")
-          
-          .attribute("aria-hidden", "true")
-          .addTo(ahref);
       }
     }
   }
