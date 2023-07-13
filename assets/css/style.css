@@ -547,6 +547,23 @@ Bootstrap */
    color: var(--text-secondary);
 }
 
+[data-theme='dark'] #formInput {
+  background-color: var(--darkGrey);
+}
+
+[data-theme='dark'] ::placeholder {
+  color: var(--purple) !important;
+  opacity: 1; /* Firefox */
+}
+
+[data-theme='dark'] .keyword__word.heading--1  {
+  color: var(--white);
+}
+
+[data-theme='dark'] .keyword__pronunciation.text--2 {
+  color: var(--purple);
+}
+
 /* custom checkbox */
 .switch {
   position: relative;
